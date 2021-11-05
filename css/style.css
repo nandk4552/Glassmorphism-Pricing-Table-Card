@@ -1,0 +1,105 @@
+* {
+    margin: 0;padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    font-family: verdana;
+}
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 60px;
+    background: #444;
+    position: relative;
+    z-index: 0;
+}
+.container::before,
+.container::after{
+    content: '';
+    position: absolute;
+    top: 0;left: 0;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+.container::before{
+    clip-path: circle(30% at 10% 10%);
+    background: linear-gradient(rgba(255,19,19,1), rgba(255,65,168,1));
+}
+.container::after{
+    clip-path: circle(20% at 90% 90%);
+    background: linear-gradient(rgba(205,0,255,1), rgba(0,189,255,1));
+}
+.container .box {
+    background: rgba(255,255,255,.1);
+    margin: 1rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,0.3);
+    border-radius: .5rem;
+    width: 300px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    transition: .2s linear;
+    backdrop-filter: blur(5px);
+}
+.container .box:hover {
+    transform: scale(1.02);
+}
+.container .box::before{
+    content: '';
+    position: absolute;
+    top: -40%;left: 50%;
+    transform: translateX(-50%);
+    height: 300px;
+    width: 300px;
+    background: rgba(255,255,255,.2);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.container .box .title{
+    color: #fff;
+    font-size: 20px;
+    padding: .5rem 0;
+    padding-top: 1.8rem;
+    text-transform: uppercase;
+}
+.container .box .price{
+    color: #fff;
+    font-size: 2.1rem;
+    padding: 1rem 0;
+    padding-bottom: 1.5rem;
+}
+.container .box .price span {
+    font-size: 1.2rem;
+    padding: 0 .1rem;
+}
+.container .box ul{
+    padding: 1.5rem 0;
+    list-style: none;
+}
+.container .box ul li {
+    font-size: 1rem;
+    color: #eee;
+    padding: 7px 0;
+}
+.container .box a {
+    display: block;
+    padding: 15px 00;
+    background: rgba(255,255,255,.2);
+    color: #fff;
+    text-decoration: none;   
+}
+.container .box a:hover {
+    background: rgba(255,255,255,.4);
+
+}
+@media (max-width:768px) {
+    .container::before{
+        clip-path: circle(20% at 10% 35%);
+    }
+}
